@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User History
+{% endblock %}
+
+{% block main %}
+    <form action="/history" method="post">
+        <div class="section">
+            <table class="portfolio-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <!-- <th>Transaction Type</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction["symbol"] }}</td>
+                        <td>{{ transaction["number"] }}</td>
+                        <td>{{ transaction["price"] | usd }}</td>
+                        <td>{{ transaction["date"] }}</td>
+                        <!-- <td>{{ transaction["type"] }}</td> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </form>
+{% endblock %}
