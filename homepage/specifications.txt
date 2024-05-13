@@ -1,0 +1,31 @@
+HTML Elements Used:
+
+1.<div>
+2.<ul>
+3.<li>
+4.<a>
+5.<h3>
+6.</hr>
+7.<img>
+8.<strong>
+9.<break>
+10.<button>
+
+Bootstrap:
+
+1. btn btn-primary
+2. form-control (input field)
+
+CSS:
+
+1. background-color
+2. justify-content
+3. text-decoration
+4. margin
+5. width
+
+JavaScript:
+
+1. I have made use of Bootstrap input text fields to accept user input. At button click- a JavaScript
+    function is executeed that checks if the text fields contain data,if they do- and a pop up appears
+    printing out the input values.
