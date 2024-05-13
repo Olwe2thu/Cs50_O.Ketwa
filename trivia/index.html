@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <div class="part1">
+                    <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3 >Is the earth flat,spherical or square?</h3>
+                <div class="btns">
+                    <input type="button"  id="btn1" value= "Flat">
+                    <input type="button" id="btn2" value="Spherical">
+                    <input type="button" id="btn3" value="Square">
+                </div>
+                <p id="p1" style="visibility:hidden"></p>
+                </div>
+            </div>
+
+            <div class="section">
+                    <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>How many countries are in South Africa?</h3>
+                <input type="text" id="ans">
+                <input type="button" id="btnSubmit" value="Submit">
+                <p  id="p2" style="visibility:hidden"></p>
+
+
+            </div>
+        </div>
+        <script>
+            // TODO: Add code to check answers to questions
+            //check  btnAnswer
+            var choices = document.querySelectorAll('.btns input');
+        for (var i = 0; i < choices.length; i++) {
+            choices[i].addEventListener('click', function() {
+                checkButtonAnswer(this);
+            });
+        }
+
+        function checkButtonAnswer(button) {
+            //assign variable and get HTML elements
+            var correctAns = "Flat";
+            var response = document.getElementById("p1");
+            for (var i = 0; i < choices.length; i++) {
+                choices[i].style.backgroundColor = "";
+            }
+            if (button.value === correctAns) {
+                button.style.backgroundColor = "green";
+                response.textContent = "Correct!";
+            }
+             else
+             {
+                button.style.backgroundColor = "red";
+                response.textContent = "Incorrect";
+            }
+            response.style.visibility = "visible";
+        }
+
+        document.getElementById('btnSubmit').addEventListener('click', function() {
+            checkAnswer();
+        });
+        //check text Answer
+        function checkAnswer() {
+            //assign variable and get HTML elements
+            var answer = "0";
+            var userAns = document.getElementById("ans").value;
+            var response = document.getElementById("p2");
+
+            if (userAns === answer) {
+                document.getElementById("ans").style.backgroundColor = "green";
+                response.textContent = "Correct";
+            }
+            else
+            {
+                document.getElementById("ans").style.backgroundColor = "red";
+                response.textContent = "Incorrect";
+            }
+            response.style.visibility = "visible";
+        }
+        </script>
+    </body>
+</html>
